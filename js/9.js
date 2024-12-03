@@ -15,6 +15,7 @@ console.log(nivelUsuario);
 const existeValor = null
 // se a o valor for real retorna valor || retorna outra coisa
 const saberSeExiste = existeValor || 'não existe'
+
 // mesma lógica
 const saberSeExiste2 = existeValor ?? 'outra Coisa'
 console.log(saberSeExiste);

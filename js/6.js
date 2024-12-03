@@ -8,7 +8,7 @@ const pessoa = {
     fala(){
          console.log(`A pessoa ${this.nome} falou sua idade é ${this.idade}`)
     },
-     incrementaIdade(){
+    incrementaIdade(){
         this.idade++;
     }
 };

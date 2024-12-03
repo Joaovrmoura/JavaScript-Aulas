@@ -19,6 +19,7 @@ send.onclick = function () {
         peso: peso.value,
         altura: altura.value
     });
+
     console.log(array);
     result.innerHTML += `Nome: ${nome.value} <br>`;
     result.innerHTML += `Sobrenome: ${sobrenome.value} <br>`;
