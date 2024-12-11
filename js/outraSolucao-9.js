@@ -1,9 +1,9 @@
-const inputTarefa = document.querySelector('.input-tarefa')
-const btnTarefa = document.querySelector('.btn-tarefa')
-const tarefas = document.querySelector('.tarefas')
+const inputTarefa = document.querySelector('.input-tarefa');
+const btnTarefa = document.querySelector('.btn-tarefa');
+const tarefas = document.querySelector('.tarefas');
 
 function criarLi(){
-    const li = document.createElement('li')
+    const li = document.createElement('li');
     return li
 }
 
@@ -12,9 +12,9 @@ inputTarefa.addEventListener('keypress', function(e){
     // pega o código da tecla pressionada
    if(e.keyCode == 13){
     if(!inputTarefa.value) return;
-     criaTarefa(inputTarefa.value)
+     criaTarefa(inputTarefa.value);
    }
-})
+});
 
 function limpaInput(textoInput){
     inputTarefa.value = '';
@@ -22,20 +22,19 @@ function limpaInput(textoInput){
     inputTarefa.focus();
 }
 
-
 function criaBotaoApagar(li){
     li.innerText += ' ';
     const botaoApagar = document.createElement('button')
     botaoApagar.innerText = 'Apagar'
     // adiciona class a tag. neste caso criada com appendchild
-    botaoApagar.setAttribute('class', 'apagar')
+    botaoApagar.setAttribute('class', 'apagar');
     li.appendChild(botaoApagar);
 }
 
 function criaTarefa(textoInput){
-    const li = criarLi()
+    const li = criarLi();
     li.innerText = textoInput;
-    tarefas.appendChild(li)
+    tarefas.appendChild(li);
     limpaInput();
     criaBotaoApagar(li);
     salvarTarefas();
@@ -44,7 +43,7 @@ function criaTarefa(textoInput){
 
 btnTarefa.addEventListener('click', function(e){
     if(!inputTarefa.value) return;
-    criaTarefa(inputTarefa.value)
+    criaTarefa(inputTarefa.value);
 });
 
 
@@ -59,7 +58,7 @@ document.addEventListener('click', function(e){
 
 function salvarTarefas(){
     const liTarefas = tarefas.querySelectorAll('li');
-    const listaDetarefas = []
+    const listaDetarefas = [];
 
     for(let tarefa of liTarefas){
         let tarefaTexto = tarefa.innerText;
@@ -68,7 +67,7 @@ function salvarTarefas(){
         listaDetarefas.push(tarefaTexto)
     }
     
-    const tarefasJSON = JSON.stringify(listaDetarefas)
+    const tarefasJSON = JSON.stringify(listaDetarefas);
     localStorage.setItem('tarefas', tarefasJSON);
     
 }
@@ -77,7 +76,7 @@ function adicionaTarefasSalvas(){
     const listaDetarefas = JSON.parse(tarefas)
     
     for(let tarefa of listaDetarefas){
-        criaTarefa(tarefa)
+        criaTarefa(tarefa);
     }
 }
 
